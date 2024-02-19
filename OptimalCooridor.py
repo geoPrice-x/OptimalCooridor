@@ -2,7 +2,7 @@ import arcpy
 from arcpy.sa import *
 
 
-def OptimalCooridor(pop, highway, dem, lc, pa, output, scratch):
+def OptimalCooridor(highway, scratch):
     
     # allow overwrites
     arcpy.env.overwriteOutput = False
@@ -30,12 +30,7 @@ def OptimalCooridor(pop, highway, dem, lc, pa, output, scratch):
 
 if __name__ == "__main__":
 
-    pop = arcpy.GetParameterAsText(0)
+    scratch = arcpy.GetParameterAsText(0)
     highway = arcpy.GetParameterAsText(1)
-    dem = arcpy.GetParameterAsText(2)
-    lc = arcpy.GetParameterAsText(3)
-    pa = arcpy.GetParameterAsText(4)
-    output = arcpy.GetParameterAsText(5)
-    scratch = arcpy.GetParameterAsText(6)
 
-    OptimalCooridor(pop, highway, dem, lc, pa, output)
+    OptimalCooridor(highway, scratch)
